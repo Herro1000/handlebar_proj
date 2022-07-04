@@ -10,5 +10,12 @@
         <h1>Handlebars Tutorial</h1>
         <div id="pets-container"></div>
       </div>
+      <script id="petsTemplate" type="text/x-handlebars-template">
+        {{#each pets}}
+        <h2>{{name}}</h2>
+        {{/each}}
+      </script>
+      <script src="js/main.js"></script>
+      <script src="js/handlebars-v4.7.7.js"></script>
 </body>
 </html>

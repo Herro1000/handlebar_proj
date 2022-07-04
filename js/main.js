@@ -1,3 +1,5 @@
+import { Handlebars } from "./handlebars-v4.7.7";
+
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'https://learnwebcode.github.io/json-example/pets-data.json');
 ourRequest.onload = function() {
@@ -14,4 +16,13 @@ ourRequest.onerror = function() {
   console.log("Connection error");
 };
 
+
 ourRequest.send();
+
+function createHTML(petsData){
+  var rawTemplate = document.getElementById('petsTemplate').innerHTML;
+  var compiledTemplate = Handlebars.compile(rawTemplate);
+  var ourGeneratedHTML = compiledTemplate(petsData);
+  var pestContainer = document.getElementById("pets-container");
+  pestContainer.innerHTML = ourGeneratedHTML;
+}
